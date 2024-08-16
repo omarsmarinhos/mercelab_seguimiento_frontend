@@ -1,0 +1,72 @@
+<div class="modal fade" id="modal-agregar-enfermedad" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Agregar enfermedad</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-4 text-right">
+            <label class="" for="check-cronico">Crónico</label>
+          </div>
+          <div class="form-group col-sm">
+            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+              <input type="checkbox" class="custom-control-input" id="check-cronico">
+              <label class="custom-control-label" for="check-cronico"></label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group d-none" id="si-cronico">
+          <div class="row">
+            <div class="col-sm-4 text-right">
+              <label for="enfermedad-cie10">Seleccionar enfermedad CIE-10</label>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group input-group-sm">
+                <input type="text" data-cie10="" id="enfermedad-cie10" class="form-control" disabled>
+                <input type="hidden" id="enfermedad-cie10-id" value="">
+                <span class="input-group-append">
+                      <button data-toggle="modal" data-target="#modal-seleccionar-cie10" type="button"
+                              class="btn btn-info btn-flat">Buscar</button>
+                    </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 text-right">
+            <label for="fecha-diagnostico">Fecha de diagnóstico</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="date" class="form-control" id="fecha-diagnostico">
+          </div>
+        </div>
+        <div class="row mt-4" id="no-cronico">
+          <div class="col-sm-4 text-right">
+            <label for="descripcion-enfermedad">Descripción de enfermedad</label>
+          </div>
+          <div class="col-sm-6">
+                  <textarea class="form-control" rows="3" placeholder="" spellcheck="false"
+                            data-ms-editor="true" id="descripcion-enfermedad"></textarea>
+          </div>
+        </div>
+        <div class="row mt-4 mt-4">
+          <div class="col-sm-4 text-right">
+            <label for="observación-enfermedad">Observación</label>
+          </div>
+          <div class="col-sm-6">
+                  <textarea class="form-control" rows="3" placeholder="" spellcheck="false"
+                            data-ms-editor="true" id="observación-enfermedad"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer text-right">
+        <button type="button" class="btn btn-primary" id="btn-agregar-enfermedad">Agregar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

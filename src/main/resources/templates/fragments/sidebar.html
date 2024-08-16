@@ -1,0 +1,36 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a href="#" class="brand-link">
+    <img src="/dist/img/logo.png" alt="Logo" class="brand-image img-circle elevation-3"
+         style="opacity: .8">
+    <span class="brand-text font-weight-light">Mercelab Seguimiento</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li th:each="menu : ${menus}" th:class="nav-item">
+          <a th:href="@{${menu.url}}" class="nav-link">
+            <i th:if="${menu.icono}" th:class="${menu.icono}"></i>
+            <p th:text="${menu.nombre}">
+            </p>
+            <i th:if="${menu.hijos != null and not #lists.isEmpty(menu.hijos)}" class="right fas fa-angle-left"></i>
+          </a>
+          <!-- Generar submenús si tiene hijos -->
+          <ul th:if="${menu.hijos != null and not #lists.isEmpty(menu.hijos)}" class="nav nav-treeview">
+            <li th:each="subMenu : ${menu.hijos}" th:class="nav-item">
+              <a th:href="@{${subMenu.url}}" class="nav-link">
+                <i th:if="${subMenu.icono}" th:class="${subMenu.icono}"></i>
+                <p th:text="${subMenu.nombre}"></p>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seguimiento | Diagnósticos</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <div th:replace="~{fragments/preloader :: div}"></div>
+  <div th:replace="~{fragments/loader :: div}"></div>
+  <!-- Navbar -->
+  <div th:replace="~{fragments/navbar :: nav}"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <div th:replace="~{fragments/sidebar :: aside}"></div>
+  <!-- /.Main Sidebar Container -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Pacientes y Enfermedades</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb-item active">Diagnósticos</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-auto">
+                    <label for="buscar-diagnostico">Buscar:</label>
+                  </div>
+                  <div class="col-sm-4">
+                    <input class="form-control " type="text" name="buscar_diagnostico" id="buscar-diagnostico">
+                    <small class="form-text">Ingresar historial clínico o apellido del paciente </small>
+                  </div>
+                  <div class="col-sm-4 d-flex align-items-center">
+                    <div class="clearfix">
+                      <div class="icheck-primary d-inline">
+                        <input type="radio" id="radioPrimary1" name="r1" value="" checked>
+                        <label for="radioPrimary1">
+                          Todos
+                        </label>
+                      </div>
+                      <div class="icheck-primary d-inline">
+                        <input type="radio" id="radioPrimary2" name="r1" value="true">
+                        <label for="radioPrimary2">
+                          Crónicos
+                        </label>
+                      </div>
+                      <div class="icheck-primary d-inline">
+                        <input type="radio" id="radioPrimary3" name="r1" value="false">
+                        <label for="radioPrimary3">
+                          No crónicos
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm text-right">
+                    <a class="btn btn-primary" data-toggle="modal"
+                       data-target="#modal-enfermedades-preseleccionadas">Agregar</a>
+                  </div>
+                </div>
+
+                <table id="tabla-diagnosticos" class="table table-bordered table-hover mt-4">
+                  <thead>
+                  <tr>
+                    <th>Paciente</th>
+                    <th>Enfermedad</th>
+                    <th>Crónico</th>
+                    <th>Tratamiento</th>
+                    <th>Seguimiento</th>
+                    <th>Acciones</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+
+                <div id="pagination-diagnosticos" class="mt-4">
+                  <span class="pagination-info"></span>
+
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                      <li class="page-item btn-prev">
+                        <button class="page-link">Previous</button>
+                      </li>
+                      <li class="page-item btn-next">
+                        <button class="page-link">Next</button>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+      <!-- /.container-fluid -->
+    </section>
+  </div>
+  <!-- /.content -->
+  <div th:replace="~{fragments/modals/enfermedades-preseleccionadas :: div}"></div>
+
+  <div th:replace="~{fragments/modals/agregar-enfermedad :: div}"></div>
+
+  <div th:replace="~{fragments/modals/seleccionar-cie10 :: div}"></div>
+
+  <div th:replace="~{fragments/modals/tratamientos :: div}"></div>
+
+  <div th:replace="~{fragments/modals/seleccionar-medicamento :: div}"></div>
+
+  <div th:replace="~{fragments/modals/seleccionar-examen :: div}"></div>
+
+  <div th:replace="~{fragments/modals/seleccionar-vacuna :: div}"></div>
+
+  <div th:replace="~{fragments/modals/seleccionar-especialidad :: div}"></div>
+
+  <div th:replace="~{fragments/modals/seguimientos :: div}"></div>
+
+  <div th:replace="~{fragments/modals/agregar-seguimiento-examen :: div}"></div>
+
+  <div th:replace="~{fragments/modals/agregar-seguimiento-medicamento :: div}"></div>
+
+  <div th:replace="~{fragments/modals/agregar-seguimiento-vacuna :: div}"></div>
+
+  <div th:replace="~{fragments/modals/agregar-seguimiento-especialidad :: div}"></div>
+
+  <div th:replace="~{fragments/modals/ver-fechas-programadas-exa :: div}"></div>
+
+  <div th:replace="~{fragments/modals/ver-fechas-programadas-med :: div}"></div>
+
+  <div th:replace="~{fragments/modals/ver-fechas-programadas-vac :: div}"></div>
+
+  <div th:replace="~{fragments/modals/ver-fechas-programadas-esp :: div}"></div>
+
+  <div th:replace="~{fragments/modals/confirmacion :: div}"></div>
+
+  <div th:replace="~{fragments/footer :: footer}"></div>
+</div>
+
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE -->
+<script src="/dist/js/adminlte.js"></script>
+<!-- SweetAlert2 -->
+<script src="/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- Select2 -->
+<script src="/plugins/select2/js/select2.full.min.js"></script>
+
+<script src="/js/models/EnfermedadDto.js"></script>
+<script src="/js/models/EnfermedadesListWrapper.js"></script>
+<script src="/js/models/SeguimientoExamen.js"></script>
+<script src="/js/models/SeguimientoMedicamento.js"></script>
+<script src="/js/models/SeguimientoVacuna.js"></script>
+<script src="/js/models/SeguimientoEspecialidad.js"></script>
+<script src="/js/models/SeguimientoExamenListWrapper.js"></script>
+<script src="/js/models/SeguimientoMedicamentoListWrapper.js"></script>
+<script src="/js/models/SeguimientoVacunaListWrapper.js"></script>
+<script src="/js/models/SeguimientoEspecialidadListWrapper.js"></script>
+<script src="/js/utils/ConfirmacionUtil.js"></script>
+<script src="/js/utils/Estado.js"></script>
+<script src="/js/utils/ToastUtil.js"></script>
+<script src="/js/utils/PopOverUtil.js"></script>
+<script src="/js/controllers/DiagnosticosController.js"></script>
+<script src="/js/controllers/InicioController.js"></script>
+
+</body>
+
+</html>

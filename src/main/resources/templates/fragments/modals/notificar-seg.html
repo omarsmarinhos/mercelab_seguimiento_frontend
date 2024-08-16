@@ -1,0 +1,46 @@
+<div class="modal fade" id="modal-notificar-seg" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Notificar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <div class="form-group row">
+            <label for="paciente" class="col-sm-4 col-form-label">Paciente:</label>
+            <div class="col-sm-6">
+              <label class="col-form-label" for="paciente" id="paciente"></label>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="paciente" class="col-sm-4 col-form-label">Teléfono:</label>
+            <div class="col-sm-6">
+              <label class="col-form-label" for="telefono" id="telefono"></label>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="observacion" class="col-sm-4 col-form-label">Observación:</label>
+            <div class="form-group row">
+              <textarea readonly name="" id="observacion" class="form-control" cols="40" rows="5"></textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="respuesta" class="col-sm-4 col-form-label">Resultado:</label>
+            <div class="form-group row">
+                <textarea name="" id="respuesta" class="form-control" cols="40" rows="5"
+                          style="width: 100%;"></textarea>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer text-right">
+          <button type="button" id="btn-notificar-seg" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

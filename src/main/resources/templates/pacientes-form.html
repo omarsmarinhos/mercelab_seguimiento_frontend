@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seguimiento | Pacientes Form</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <div th:replace="~{fragments/preloader :: div}"></div>
+  <div th:replace="~{fragments/loader :: div}"></div>
+  <!-- Navbar -->
+  <div th:replace="~{fragments/navbar :: nav}"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <div th:replace="~{fragments/sidebar :: aside}"></div>
+  <!-- /.Main Sidebar Container -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Formulario Paciente</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Pacientes</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div>
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card card-info">
+
+          <form class="form-horizontal" id="formulario-paciente">
+            <div class="card-body">
+              <div class="form-group row">
+                <label for="tipo-documento" class="col-sm-4 col-form-label text-right">Tipo de documento</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="tipo-documento" name="tipo_documento">
+                    <option value="">----- Seleccionar -----</option>
+                    <option value="1">DNI</option>
+                    <option value="2">CARNET DE EXTRANJERIA</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="numero-documento" class="col-sm-4 col-form-label text-right">Numero de documento</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="numero-documento" placeholder="Numero de documento"
+                         name="numero_documento">
+                  <label id="nro-error" for="numero-documento" class="d-none"></label>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="apellido-paterno" class="col-sm-4 col-form-label text-right">Apellido Paterno</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="apellido-paterno" name="apellido_paterno"
+                         placeholder="Apellido Paterno">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="apellido-materno" class="col-sm-4 col-form-label text-right">Apellido Materno</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="apellido-materno" name="apellido_materno"
+                         placeholder="Apellido Materno">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="nombres" class="col-sm-4 col-form-label text-right">Nombres</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="nombres" name="nombres"
+                         placeholder="Nombres">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="fecha-nacimiento" class="col-sm-4 col-form-label text-right">Fecha Nacimiento</label>
+                <div class="col-sm-6">
+                  <input type="date" class="form-control" id="fecha-nacimiento" name="fecha_nacimiento">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="ubigeo" class="col-sm-4 col-form-label text-right">Distrito</label>
+                <div class="col-md-6">
+                  <select class="form-control select2" style="width: 100%;" id="ubigeo"></select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="direccion" class="col-sm-4 col-form-label text-right">Dirección</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="email" class="col-sm-4 col-form-label text-right">Email</label>
+                <div class="col-sm-6">
+                  <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="telefono" class="col-sm-4 col-form-label text-right">Teléfono</label>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="sexo" class="col-sm-4 col-form-label text-right">Sexo</label>
+                <div class="col-sm-6">
+                  <select class="form-control validar" id="sexo" name="sexo">
+                    <option value="">----- Seleccionar -----</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                    <option VALUE="O">Otro</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label text-right" for="check-alergia">Alergia</label>
+                <div class="form-group col-sm-6">
+                  <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                    <input type="checkbox" class="custom-control-input" id="check-alergia">
+                    <label class="custom-control-label" for="check-alergia"></label>
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" name="" id="paciente-id" th:value="${id}">
+              <div class="card-footer">
+                <button type="submit" class="btn btn-info">Guardar</button>
+                <a th:href="@{/pacientes}" class="btn btn-default float-right">Cancel</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-md-6 -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <div th:replace="~{fragments/footer :: footer}"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<script>
+    const email = "[[${email}]]";
+</script>
+<!-- jQuery -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery Validation -->
+<script src="/plugins/jquery-validation/jquery.validate.min.js"></script>
+<!-- Bootstrap -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE -->
+<script src="/dist/js/adminlte.js"></script>
+<!-- SweetAlert2 -->
+<script src="/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- Select2 -->
+<script src="/plugins/select2/js/select2.full.min.js"></script>
+<script src="/js/utils/ToastUtil.js"></script>
+<script src="/js/controllers/InicioController.js"></script>
+<script src="/js/controllers/PacientesFormController.js"></script>
+
+</body>
+
+</html>

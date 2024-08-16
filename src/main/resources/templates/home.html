@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seguimiento | Inicio</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <div th:replace="~{fragments/preloader :: div}"></div>
+  <div th:replace="~{fragments/loader :: div}"></div>
+  <!-- Navbar -->
+  <div th:replace="~{fragments/navbar :: nav}"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <div th:replace="~{fragments/sidebar :: aside}"></div>
+  <!-- /.Main Sidebar Container -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Inicio</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3 id="count-pacientes">NaN</h3>
+                <p>Pacientes</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <a th:href="@{/pacientes/}" class="small-box-footer">Ver más <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3 id="count-seguimientos-hoy">NaN</h3>
+                <p>Seguimientos para hoy</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-laptop-medical"></i>
+              </div>
+              <a th:href="@{/seguimientos/}" class="small-box-footer">Ver más <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3 id="count-seguimientos-7-dias">NaN</h3>
+                <p>Seguimientos próximos</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-laptop-medical"></i>
+              </div>
+              <a th:href="@{/seguimientos/}" class="small-box-footer">Ver más <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3 id="count-seguimientos-atrasados">NaN</h3>
+                <p>Seguimientos atrasados</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-laptop-medical"></i>
+              </div>
+              <a th:href="@{/seguimientos/}" class="small-box-footer">Ver más <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+      <!-- /.container-fluid -->
+      <div class="row">
+        <section class="col-lg-7">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="d-flex justify-content-between">
+                <h3 class="card-title">
+                  <i class="ion ion-clipboard mr-1"></i>
+                  Seguimientos Terminados
+                </h3>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex">
+                <p class="d-flex flex-column">
+                  <span class="text-bold text-lg" id="seguimientos-total">NaN</span>
+                  <span>Total de seguimientos</span>
+                </p>
+              </div>
+              <!-- /.d-flex -->
+              <div class="position-relative mb-4">
+                <canvas id="seguimientos-chart" height="200"></canvas>
+              </div>
+
+              <div class="d-flex flex-row justify-content-end">
+            <span class="mr-2">
+              <i class="fas fa-square text-primary"></i> Exámenes
+            </span>
+                <span class="mr-2">
+              <i class="fas fa-square text-success"></i> Medicamentos
+            </span>
+                <span class="mr-2">
+              <i class="fas fa-square text-danger"></i> Vacunas
+            </span>
+                <span>
+              <i class="fas fa-square text-warning"></i> Especialidades
+            </span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="col-lg-5">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="d-flex justify-content-between">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-pie mr-1"></i>
+                  Seguimientos del mes
+                </h3>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex">
+                <p class="d-flex flex-column">
+                  <span class="text-bold text-lg" id="seguimientos-total-circular">NaN</span>
+                  <span>Total de seguimientos</span>
+                </p>
+              </div>
+              <!-- /.d-flex -->
+              <div class="position-relative mb-4">
+                <canvas id="seguimientos-chart-pie" height="200"></canvas>
+              </div>
+
+              <div class="d-flex flex-row justify-content-end">
+                <span class="mr-2">
+                  <i class="fas fa-square text-success"></i> En seguimiento
+                </span>
+                    <span class="mr-2">
+                  <i class="fas fa-square text-danger"></i> Eliminado
+                </span>
+                    <span>
+                  <i class="fas fa-square text-warning"></i> Terminado
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </section>
+  </div>
+  <!-- /.content -->
+
+  <div th:replace="~{fragments/modals/ventana-emergente :: div}"></div>
+
+  <div th:replace="~{fragments/footer :: footer}"></div>
+</div>
+
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE -->
+<script src="/dist/js/adminlte.js"></script>
+<!-- SweetAlert2 -->
+<script src="/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- Select2 -->
+<script src="/plugins/select2/js/select2.full.min.js"></script>
+<!-- ChartJS -->
+<script src="/plugins/chart.js/Chart.min.js"></script>
+
+<script>
+    const email = "[[${email}]]";
+</script>
+
+<script src="/js/utils/ConfirmacionUtil.js"></script>
+<script src="/js/utils/Estado.js"></script>
+<script src="/js/utils/ToastUtil.js"></script>
+<script src="/js/utils/PopOverUtil.js"></script>
+<script src="/js/controllers/InicioController.js"></script>
+<script src="/js/controllers/HomeController.js"></script>
+
+</body>
+
+</html>

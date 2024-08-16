@@ -1,0 +1,51 @@
+<div class="modal fade" id="modal-seleccionar-cie10" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Seleccionar enfermedad CIE-10</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-2">
+            <label for="buscar-cie10">Buscar:</label>
+          </div>
+          <div class="col-sm">
+            <input class="form-control " type="text" name="buscar" id="buscar-cie10">
+            <small class="form-text">Ingresar código CIE10 o descripción</small>
+          </div>
+        </div>
+        <div id="pagination-cie10" class="mt-4 row">
+          <span class="pagination-info col"></span>
+
+          <nav class="col" aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+              <li class="page-item btn-prev">
+                <button class="page-link">Previous</button>
+              </li>
+              <li class="page-item btn-next">
+                <button class="page-link">Next</button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <table id="tabla-cie10" class="table table-bordered table-hover mt-2">
+          <thead>
+          <tr>
+            <th>Código CIE10</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer text-right">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="modal fade" id="modal-enfermedades-preseleccionadas" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Enfermedades preseleccionadas</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="col-sm-2">
+            <label class="" for="paciente">Paciente</label>
+          </div>
+          <div class="form-group col-sm-6">
+            <select class="form-control select2" style="width: 100%;" id="paciente"></select>
+          </div>
+          <div class="col-sm-4 text-right">
+            <a class="btn btn-primary" data-toggle="modal"
+               data-target="#modal-agregar-enfermedad">Agregar Enfermedad</a>
+          </div>
+        </div>
+        <table id="tabla-enfermedades-pre" class="table table-bordered table-hover mt-2">
+          <thead>
+          <tr>
+            <th>Descripción</th>
+            <th>Es crónico</th>
+            <th>Eliminar</th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer text-right">
+        <button type="button" class="btn btn-primary" id="btn-guardar-enfermedades">Guardar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

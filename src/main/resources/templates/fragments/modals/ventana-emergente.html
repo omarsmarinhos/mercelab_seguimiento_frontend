@@ -1,0 +1,31 @@
+<div class="modal fade" id="modal-ventana-emergente" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Seguimientos más próximos</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table id="tabla-seguimientos-limit" class="table table-borderless table-striped table-valign-middle">
+          <thead>
+          <tr>
+            <th>Paciente</th>
+            <th>Tipo</th>
+            <th>En seguimiento</th>
+            <th>Fecha</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer text-right">
+        <a th:href="@{/seguimientos/}" class="btn btn-primary" >Ir a Seguimientos</a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
